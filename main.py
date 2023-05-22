@@ -25,7 +25,7 @@ class FlashcardForm(BaseModel):
 
 
 def make_cards(api_key: str, article_text: str, num_cards: int) -> str:
-    prompt = f"""Create Anki flash cards based on the provided text. I will guide you with some examples.Given the following input, you might generate the output...
+    prompt = f"""Create Anki flash cards based on the provided text. I will guide you with some examples. Given the following input, you might generate the output...
 
 Input:
 "Scaling laws generally only predict a model’s pretraining test loss, which measures the model’s ability to correctly predict how an incomplete piece of text will be continued. While this measure is correlated with how useful a model will be on average across many practical tasks (Radford et al., 2019), it is largely not possible to predict when models will start to show specific skills or become capable of specific tasks (see Figure 2; Steinhardt, 2021; Ganguli et al., 2022a; Wei et al., 2022a)."
@@ -47,6 +47,7 @@ The third flash card is bad because there is no context in the flashcard about w
 
 Requirements:
  - The flashcards should be appropriate for learning the content of the article. 
+ - The flashcard should not rely on the user remembering the context of the article. I.E Don't ask questions like "What does the author say about X?".
  - Each flashcard should capture just one concept.
  - Each answer should be short and to the point, ideally just a few words.
  - Do not provide any other text in your answer, just the list of flashcards.
