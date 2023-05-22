@@ -1,0 +1,8 @@
+beautifulsoup4==4.12.2
+fastapi==0.95.2
+Jinja2==3.1.2
+openai==0.27.7
+pydantic==1.10.7
+python-multipart==0.0.6
+requests==2.30.0
+uvicorn==0.22.0
