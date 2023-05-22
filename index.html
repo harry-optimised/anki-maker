@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anki Card Maker</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+</head>
+<body class="container py-5">
+
+    <div id="content">
+        <form hx-post="/generate_flashcards" hx-swap="innerHTML" hx-target="#content">
+            <div class="form-group">
+                <label for="url">Article URL:</label>
+                <input type="url" id="url" name="url" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="api_key">OpenAI API Key (optional, if not provided it will be taken from the environment variable):</label>
+                <input type="text" id="api_key" name="api_key" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="num_cards">Number of Cards (per 2000 words):</label>
+                <input type="number" id="num_cards" name="num_cards" min="1" required class="form-control">
+            </div>
+            <button type="submit" id="submit-button" class="btn btn-primary">Generate Flashcards</button>
+        </form>
+        
+        {% if model_output %}
+            <h2 class="mt-5">Generated Flashcards</h2>
+            <ul class="list-group">
+            <pre>{{model_output}}</pre>
+            </ul>
+        {% endif %}
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function() {
+            var submitButton = document.querySelector('#submit-button');
+            submitButton.textContent = 'Please Wait...';
+            submitButton.disabled = true;
+        });
+
+        document.querySelector('form').addEventListener('htmx:afterOnLoad', function() {
+            var submitButton = document.querySelector('#submit-button');
+            submitButton.textContent = 'Generate Flashcards';
+            submitButton.disabled = false;
+        });
+    </script>
+</body>
+</html>
