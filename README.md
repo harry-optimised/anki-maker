@@ -13,8 +13,8 @@ Follow these steps to set up and run the application using a Python virtual envi
 2. Next, clone the repository and navigate to the directory:
 
     ```
-    git clone https://github.com/<your-username>/anki-card-maker.git
-    cd anki-card-maker
+    git clone https://github.com/harry-optimised/anki-maker.git
+    cd anki-maker
     ```
 
 3. Create a Python virtual environment and activate it:
@@ -27,13 +27,13 @@ Follow these steps to set up and run the application using a Python virtual envi
 4. Install the necessary Python packages using pip:
 
     ```
-    pip install -r requirements.txt
+    python3.9 -m pip install -r requirements.txt
     ```
 
 5. Run the application with uvicorn:
 
     ```
-    uvicorn main:app --reload
+    python3.9 -m uvicorn main:app --reload
     ```
 
 6. You can now access the application at http://localhost:8000 in your web browser.
@@ -47,20 +47,20 @@ Follow these steps to set up and run the application using Docker.
 2. Clone the repository and navigate to the directory:
 
     ```
-    git clone https://github.com/<your-username>/anki-card-maker.git
-    cd anki-card-maker
+    git clone https://github.com/harry-optimised/anki-maker.git
+    cd anki-maker
     ```
 
 3. Build the Docker image:
 
     ```
-    docker build -t anki-card-maker .
+    docker build -t anki-maker .
     ```
 
 4. Run the Docker container:
 
     ```
-    docker run -p 80:80 anki-card-maker
+    docker run -p 80:80 anki-maker
     ```
 
 5. You can now access the application at http://localhost in your web browser.
