@@ -37,13 +37,9 @@ answer: They are not able to predict emergent capabilities.
 question: What are the pros and cons of scaling laws?
 answer: Pros are that they are easy to use and can be applied to many different models. Cons are that they are not able to predict emergent capabilities.
 
-question: What does the author say about scaling laws?
-answer: They are not able to predict emergent capabilities.
-
 Analysis of response:
 The first flash card is good because it guides the student to the answer without giving it away.
 The second flash card is bad because it is too open-ended, also the answer is far too long.
-The third flash card is bad because there is no context in the flashcard about who the author is.
 
 Requirements:
  - The flashcards should be appropriate for learning the content of the article. 
