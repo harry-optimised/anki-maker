@@ -25,18 +25,25 @@ class FlashcardForm(BaseModel):
 
 
 def make_cards(api_key: str, article_text: str, num_cards: int) -> str:
-    prompt = f"""Create Anki flash cards based on the provided text. For example, given the text "Scaling laws generally only predict a model’s pretraining test loss, which measures the model’s ability to correctly predict how an incomplete piece of text will be continued.1 While this measure is correlated with how useful a model will be on average across many practical tasks (Radford et al., 2019), it is largely not possible to predict when models will start to show specific skills or become capable of specific tasks (see Figure 2; Steinhardt, 2021; Ganguli et al., 2022a; Wei et al., 2022a)."
+    prompt = f"""Create Anki flash cards based on the provided text. I will guide you with some examples.Given the following input, you might generate the output...
 
-You would generate the following output, note the format of the answer:
+Input:
+"Scaling laws generally only predict a model’s pretraining test loss, which measures the model’s ability to correctly predict how an incomplete piece of text will be continued. While this measure is correlated with how useful a model will be on average across many practical tasks (Radford et al., 2019), it is largely not possible to predict when models will start to show specific skills or become capable of specific tasks (see Figure 2; Steinhardt, 2021; Ganguli et al., 2022a; Wei et al., 2022a)."
 
+Output:
 question: State one disadvantage of scaling laws, with respect to their predictive power.
 answer: They are not able to predict emergent capabilities.
 
 question: What are the pros and cons of scaling laws?
 answer: Pros are that they are easy to use and can be applied to many different models. Cons are that they are not able to predict emergent capabilities.
 
+question: What does the author say about scaling laws?
+answer: They are not able to predict emergent capabilities.
+
+Analysis of response:
 The first flash card is good because it guides the student to the answer without giving it away.
-The second flash card is bad because it is too open-ended and the student will not know what to answer.
+The second flash card is bad because it is too open-ended, also the answer is far too long.
+The third flash card is bad because there is no context in the flashcard about who the author is.
 
 Requirements:
  - The flashcards should be appropriate for learning the content of the article. 
